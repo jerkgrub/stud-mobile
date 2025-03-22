@@ -37,6 +37,8 @@ export default function RootLayout() {
           <Stack.Screen name="admin_home" options={{ headerShown: false }} />
           <Stack.Screen name="forms" options={{ headerShown: false }} />
           <Stack.Screen name="application_forms" options={{ headerShown: false }} />
+          <Stack.Screen name="dashboard" options={{ headerShown: false }} />
+          <Stack.Screen name="calendar" options={{ headerShown: false }} />
           <Stack.Screen name="+not-found" />
         </Stack>
         <StatusBar style="auto" />

@@ -16,7 +16,6 @@ const data = [
 export default function Dashboard() {
   return (
     <View style={styles.container}>
-      <Image source={require('../assets/images/Nu_building2.png')} style={styles.backgroundImage} />
       {/* Header */}
       <View style={styles.header}>
         <Image source={require('../assets/images/Studevent.png')} style={styles.logo} />
@@ -79,13 +78,12 @@ export default function Dashboard() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, alignItems: 'center', backgroundColor: '#fff' },
-  backgroundImage: { position: 'absolute', width: '100%', height: '100%', resizeMode: 'cover', opacity: 0.3 },
   header: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#1a3ab5', width: '100%', padding: 15, position: 'absolute', top: 0 },
   headerLine: { width: '100%', height: 4, backgroundColor: '#ffd900', position: 'absolute', top: 70 },
   logo: { width: 40, height: 40, marginRight: 10 },
   headerText: { fontSize: 20, color: '#fff', fontWeight: 'bold' },
   contentContainer: { alignItems: 'center', marginTop: 90, paddingBottom: 100 },
-  title: { fontSize: 20, color: '#fff', fontWeight: 'bold', backgroundColor: '#1a3ab5', paddingVertical: 8, paddingHorizontal: 20, borderRadius: 10 },
+  title: { fontSize: 22, fontWeight: 'bold', color: '#1a3ab5', marginBottom: 20 },
   statContainer: { flexDirection: 'row', justifyContent: 'space-around', width: '90%', marginBottom: 20 },
   statBox: { padding: 20, borderRadius: 10, alignItems: 'center', width: '45%' },
   statNumber: { fontSize: 24, fontWeight: 'bold', color: '#000' },
