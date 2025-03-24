@@ -3,6 +3,8 @@ import { View, Text, StyleSheet, Dimensions, Image, TouchableOpacity, ScrollView
 import { FontAwesome5 } from '@expo/vector-icons';
 
 
+
+
 const { width, height } = Dimensions.get('window');
 const images = [
   require('../assets/images/NU_moa_event1.jpg'),
