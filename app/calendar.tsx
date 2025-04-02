@@ -26,21 +26,23 @@ export default function CalendarScreen() {
       {/* Calendar */}
       <View style={styles.contentContainer}>
         <Text style={styles.title}>Event Calendar</Text>
-        <Calendar
-          onDayPress={(day: DateData) => setSelectedDate(day.dateString)}
-          markedDates={{
-            ...Object.keys(events).reduce((acc, date) => {
-              acc[date] = { marked: true, dotColor: 'blue' };
-              return acc;
-            }, {} as Record<string, any>),
-            ...(selectedDate && { [selectedDate]: { selected: true, selectedColor: '#1a3ab5' } })
-          }}
-          theme={{
-            selectedDayBackgroundColor: '#1a3ab5',
-            todayTextColor: '#1a3ab5',
-            arrowColor: '#1a3ab5',
-          }}
-        />
+        <View style={styles.calendarContainer}>
+          <Calendar
+            onDayPress={(day: DateData) => setSelectedDate(day.dateString)}
+            markedDates={{
+              ...Object.keys(events).reduce((acc, date) => {
+                acc[date] = { marked: true, dotColor: 'blue' };
+                return acc;
+              }, {} as Record<string, any>),
+              ...(selectedDate && { [selectedDate]: { selected: true, selectedColor: '#1a3ab5' } })
+            }}
+            theme={{
+              selectedDayBackgroundColor: '#1a3ab5',
+              todayTextColor: '#1a3ab5',
+              arrowColor: '#1a3ab5',
+            }}
+          />
+        </View>
 
         {/* Events List */}
         <View style={styles.eventContainer}>
@@ -71,6 +73,17 @@ const styles = StyleSheet.create({
   headerText: { fontSize: 20, color: '#fff', fontWeight: 'bold' },
   contentContainer: { alignItems: 'center', marginTop: 90, paddingBottom: 100, width: '100%' },
   title: { fontSize: 22, fontWeight: 'bold', color: '#1a3ab5', marginBottom: 20 },
+  calendarContainer: {
+    width: '90%',
+    backgroundColor: '#fff',
+    padding: 10,
+    borderRadius: 10,
+    elevation: 5, // Android shadow
+    shadowColor: '#000', // iOS shadow
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+  },
   eventContainer: { width: '90%', backgroundColor: '#f4f4f4', padding: 20, borderRadius: 10, marginTop: 20 },
   eventTitle: { fontSize: 18, fontWeight: 'bold', color: '#1a3ab5', marginBottom: 10 },
   eventItem: { fontSize: 16, color: '#333', marginBottom: 5 },
