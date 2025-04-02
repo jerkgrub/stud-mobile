@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React from 'react';
 import { View, Text, TouchableOpacity, Image, ScrollView, StyleSheet } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -25,43 +25,36 @@ const images = {
   orgN: require('../assets/images/orgs/MTSC.png'),
   orgO: require('../assets/images/orgs/NU MOA PEERS.png'),
   orgP: require('../assets/images/orgs/NURSING.jpg'),
-  orgQ: require('../assets/images/orgs/PHISMETS.png'), 
+  orgQ: require('../assets/images/orgs/PHISMETS.png'),
   orgR: require('../assets/images/orgs/PSYCHSOC.png'),
   orgS: require('../assets/images/orgs/SAM.png'),
   orgT: require('../assets/images/orgs/tousoc.jpg'),
   orgU: require('../assets/images/orgs/YUGEN.jpg'),
-  // orgV: require('../assets/images/orgs/DANCE HIVE.png'),
 };
 
 // Organization data
 const organizations = [
-  { id: 1, name: 'Organization A', image: images.orgA },
-  { id: 2, name: 'Organization A', image: images.orgB },
-  { id: 3, name: 'Organization A', image: images.orgC },
-  { id: 4, name: 'Organization A', image: images.orgD },
-  { id: 5, name: 'Organization A', image: images.orgE },
-  { id: 6, name: 'Organization A', image: images.orgF },
-  { id: 7, name: 'Organization A', image: images.orgG },
-  { id: 8, name: 'Organization A', image: images.orgH },
-  { id: 9, name: 'Organization A', image: images.orgI },
-  { id: 10, name: 'Organization A', image: images.orgJ },
-  { id: 11, name: 'Organization A', image: images.orgK },
-  { id: 12, name: 'Organization A', image: images.orgL },
-  { id: 13, name: 'Organization A', image: images.orgM },
-  { id: 14, name: 'Organization A', image: images.orgO },
-  { id: 15, name: 'Organization A', image: images.orgP },
-  { id: 16, name: 'Organization A', image: images.orgQ },
-  { id: 17, name: 'Organization A', image: images.orgR },
-  { id: 18, name: 'Organization A', image: images.orgS },
-  { id: 19, name: 'Organization A', image: images.orgT },
-  { id: 20, name: 'Organization A', image: images.orgU },
-  // { id: 21, name: 'Organization A', image: images.orgA },
-  // { id: 22, name: 'Organization A', image: images.orgA },
-  // { id: 23, name: 'Organization A', image: images.orgA },
-  // { id: 24, name: 'Organization A', image: images.orgA },
-  // { id: 25, name: 'Organization A', image: images.orgA },
-  // { id: 26, name: 'Organization A', image: images.orgA },
-  // { id: 27, name: 'Organization A', image: images.orgA },
+  { id: 1, name: 'NUSG', image: images.orgA },
+  { id: 2, name: 'COCO', image: images.orgB },
+  { id: 3, name: 'CSE', image: images.orgC },
+  { id: 4, name: 'CWSJ', image: images.orgD },
+  { id: 5, name: 'DANCE HIVE', image: images.orgE },
+  { id: 6, name: 'DSC', image: images.orgF },
+  { id: 7, name: 'FIRST IMPRESSION', image: images.orgG },
+  { id: 8, name: 'ITSC', image: images.orgH },
+  { id: 9, name: 'JFINEX', image: images.orgI },
+  { id: 10, name: 'JMOA', image: images.orgJ },
+  { id: 11, name: 'JPCS', image: images.orgK },
+  { id: 12, name: 'JPIA', image: images.orgL },
+  { id: 13, name: 'LOVE FOR READING', image: images.orgM },
+  { id: 13, name: 'MTSC', image: images.orgN },
+  { id: 14, name: 'NU MOA PEERS', image: images.orgO },
+  { id: 15, name: 'NURSING', image: images.orgP },
+  { id: 16, name: 'PHISMETS', image: images.orgQ },
+  { id: 17, name: 'PHSYCHSOC', image: images.orgR },
+  { id: 18, name: 'SAM', image: images.orgS },
+  { id: 19, name: 'TOUSOC', image: images.orgT },
+  { id: 20, name: 'YUGEN', image: images.orgU },
 ];
 
 const ViewAllOrganizations: React.FC<Props> = ({ navigation }) => {
@@ -75,7 +68,7 @@ const ViewAllOrganizations: React.FC<Props> = ({ navigation }) => {
       <View style={styles.headerLine} />
 
       {/* Organizations List */}
-      <ScrollView contentContainerStyle={styles.listContainer}>
+      <ScrollView contentContainerStyle={styles.listContainer} style={styles.scrollView}>
         {organizations.map((org) => (
           <View key={org.id} style={styles.card}>
             <Image source={org.image} style={styles.image} />
@@ -107,9 +100,8 @@ const ViewAllOrganizations: React.FC<Props> = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-    alignItems: 'center',
     backgroundColor: '#f5f5f5',
+    paddingTop: 80, // Prevent header overlap
   },
   header: {
     flexDirection: 'row',
@@ -119,6 +111,7 @@ const styles = StyleSheet.create({
     padding: 15,
     position: 'absolute',
     top: 0,
+    zIndex: 2, // Ensure it stays on top
   },
   headerLine: {
     width: '100%',
@@ -126,6 +119,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffd900',
     position: 'absolute',
     top: 70,
+    zIndex: 2,
   },
   logo: {
     width: 40,
@@ -137,14 +131,15 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
   },
+  scrollView: {
+    flex: 1,
+  },
   listContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
     gap: 10,
-    marginTop:80,
-    
-
+    paddingBottom: 120, // Prevents items from being cut off by the bottom nav
   },
   card: {
     width: '45%',
@@ -172,13 +167,15 @@ const styles = StyleSheet.create({
   },
   bottomNav: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    width: '90%',
+    justifyContent: 'space-around', // Keep buttons evenly spaced
+    alignItems: 'center',
+    width: '90%', // Same as original
     padding: 15,
     borderRadius: 30,
     backgroundColor: '#1a3ab5',
     position: 'absolute',
     bottom: 20,
+    alignSelf: 'center', // Centers the entire nav bar
   },
   navButton: {
     alignItems: 'center',
